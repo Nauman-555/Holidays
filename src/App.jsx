@@ -30,7 +30,7 @@ const handleClickHome = () =>{
 const handleClickSubmit = () =>{
   setDatavar(true);
   setSprit()
-  
+  setHolidays(null);
 
      // Validation for empty fields
      if (!country || !year || !month || !day) {
