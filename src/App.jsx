@@ -17,6 +17,10 @@ const [sprit, setSprit] = useState("Hey! Let Us See The Holidays")
 const handleClickSearch = () =>{
   setDatavar(true);
   setSprit()
+  setCountry('US');
+  setYear(today.getFullYear());
+  setMonth(today.getMonth()+1);
+  setDay(today.getDate());
 }
 const handleClickHome = () =>{
   setDatavar(false)
