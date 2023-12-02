@@ -3,12 +3,13 @@ import axios from 'axios';
 import './App.css'
 
 const App = () => {
-
-const [country, setCountry] = useState('')
-const [year, setYear] = useState('')
-const [month, setMonth] = useState('')
-const [day, setDay] = useState('')
-const [holiday, setHoliday] = useState(null)
+const today = new Date();
+console.log(today)
+const [country, setCountry] = useState('US')
+const [year, setYear] = useState(today.getFullYear())
+const [month, setMonth] = useState(today.getMonth()+1)
+const [day, setDay] = useState(today.getDate())
+const [holidays, setHolidays] = useState(null)
 const [datavar, setDatavar] = useState(false)
 const [sprit, setSprit] = useState("Hey! Let Us See The Holidays")
 
@@ -19,7 +20,7 @@ const handleClickSearch = () =>{
 }
 const handleClickHome = () =>{
   setDatavar(false)
-  setHoliday()
+  setHolidays()
   setSprit("Hey! Let Us See The Holidays")
 }
 const handleClickSubmit = () =>{
@@ -51,7 +52,7 @@ const handleClickSubmit = () =>{
   axios.get(`https://holidays.abstractapi.com/v1/?api_key=5bab1b6c62b4461e8fa99dd2e53acdfd&country=${country}&year=${year}&month=${month}&day=${day}`)
     .then(response => {
           console.log(response.data);
-          setHoliday(response.data);
+          setHolidays(response.data);
 
           setCountry('');
           setYear('');
@@ -62,6 +63,7 @@ const handleClickSubmit = () =>{
           console.log(error);
       });
 }
+
   return (
     <div>
       <h1>{sprit}</h1>
@@ -70,20 +72,31 @@ const handleClickSubmit = () =>{
        ) : (
         
         <> <h2>Enter Your Choice</h2>
-        <input type="text" value={country} placeholder="Enter Country" required="required" maxLength={2} onChange={e =>setCountry(e.target.value)}/> <br />
-        <input type="number" value={year} placeholder="Enter Year" maxLength={4} onChange={e =>setYear(e.target.value)}/> <br />
-        <input type="number" value={month} placeholder="Enter Month" maxLength={2} onChange={e =>setMonth(e.target.value)}/> <br />
-        <input type="number" value={day} placeholder="Enter Day" maxLength={2} onChange={e =>setDay(e.target.value)}/> <br />
-        <button className='butn' onClick={handleClickSubmit}>Submit</button>
+       <h2>Country</h2> <input type="text" value={country} placeholder="Enter Here" required="required" maxLength={2} onChange={e =>setCountry(e.target.value)}/> <br />
+       <h2>Year</h2><input type="number" value={year} placeholder="Enter Here" maxLength={4} onChange={e =>setYear(e.target.value)}/> <br />
+       <h2>Month</h2> <input type="number" value={month} placeholder="Enter Here" maxLength={2} onChange={e =>setMonth(e.target.value)}/> <br />
+       <h2>Day</h2><input type="number" value={day} placeholder="Enter Here" maxLength={2} onChange={e =>setDay(e.target.value)}/> <br />
+       <button className='butn' onClick={handleClickSubmit}>Submit</button>
         </>)}
-        {holiday && (
-    <div className='fetch' >
+        {holidays && Array.isArray(holidays) ? (
+  <div>
     <h2>Holiday Data:</h2>
-    <pre>{JSON.stringify(holiday, null, 2)}</pre>
-    <button className='but' onClick={handleClickHome}>Home page</button>
-    </div>
-    )}
-        
+    {holidays.map((holidayItem, index) => (
+      <div key={index}>
+        <p>Name: {holidayItem.name}</p>
+        <p>Type: {holidayItem.type}</p>
+        <p>Location: {holidayItem.location}</p>
+        <p>Week Day: {holidayItem.week_day}</p>
+        <hr />
+      </div>
+    ))}
+    <button className='but' onClick={handleClickHome}>
+      Home page
+    </button>
+  </div>
+) : null}
+
+
     </div> 
   )};  
 export default App;
