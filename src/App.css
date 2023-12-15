@@ -1,17 +1,14 @@
-*{
-  text-align: center;
-  align-items: center;
-  margin: 100;
-  width: 100;
-}
+
 .but{
-  background-color: #58cc02;
-  color: white;
+  background-color: rgb(244, 244, 100);
+  color: rgb(8, 8, 8);
   position: relative;
   width: 200px;
   padding: 15px 0;
   text-align: center;
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  margin-right: 100px;
+  margin-top: 30px;
   font-weight: bold;
   font-size:larger;
   border: 2px solid rgb(112, 92, 92);
@@ -19,25 +16,30 @@
   border-radius: 10px;
 }
 .but:hover{
-  background-color: white;
-  color: #58cc02;
-  border: 2px solid rgb(83, 247, 83);
+  background-color: rgb(26, 3, 3);
+  color:white;
+  border: 2px solid white;
 }
-/* .but:active{
-  box-shadow: none;
-  transform: translateY(5px);
-} */
+.click{
+  margin-top: 100px;
+  color: aliceblue;
+  margin-bottom: 20px;
+  margin-right: 80px;
+}
 h1{
-  margin-bottom: 100px;
+  color: white;
 }
 .butn{
-  background-color: blueviolet;
-  color: white;
+  
+  background-color: rgb(238, 184, 184);
+  color: black;
   position: relative;
   width: 120px;
   padding: 15px 0;
   text-align: center;
-  margin: 20px 10px;
+  /* margin: 50px 10px; */
+  margin-top: 35px;
+  margin-right: 12px;
   font-weight: bold;
   font-size:larger;
   border: 2px solid rgb(220, 200, 200);
@@ -45,8 +47,9 @@ h1{
   border-radius: 10px;
 }
 .butn:hover{
-  background-color: white;
-  color: blueviolet;
+  
+  background-color: black;
+  color: white;
   border-radius: 3px solid rgb(64, 20, 106);
 }
 /* Style for text input */
@@ -60,5 +63,83 @@ input[type="number"] {
   box-sizing: border-box;
 }
 h2{
+  color: rgb(252, 251, 249);
   margin-bottom: 5px;
+  /* margin-right: 100px; */
+}
+.back{
+  background-color: rgb(249, 225, 225);
+  width: 30%;
+  text-align: center;
+  align-items: center;
+  margin-left: 80%;
+  margin-top: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  /* border: 0.2px solid rgb(239, 198, 198); */
+}
+p{
+  padding-top: 8px;
+  color: rgb(5, 0, 0);
+}
+body {
+  text-align: right;
+  /* align-items: ; */
+  background-image: url('Background.jpg');
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  max-height: 150vh;
+  margin-right: 250px;
+  padding: 0;
+}
+
+.bg {
+  margin-top: -30px;
+  padding: 20px;
+  /* border-radius: 1000px solid rgb(8, 8, 8); */
+}
+.nut{
+  background-color: rgb(244, 244, 100);
+  color: rgb(8, 8, 8);
+  position: relative;
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  /* margin: 20px 10px; */
+  font-weight: bold;
+  font-size:larger;
+  border: 2px solid rgb(112, 92, 92);
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 400px;
+  margin-top: 20px;
+}
+.nut:hover{
+  background-color: rgb(26, 3, 3);
+  color:white;
+  border: 2px solid white;
+}
+.a{
+  /* margin-right: 200px; */
+  margin-left: 120px;
+  margin-top: 180px;
+}
+.b{
+  margin-right: 60px;
+}
+.c{
+  margin-right: 100px;
+}
+.d{
+  margin-right: 80px;
+}
+.e{
+  margin-right: 105px;
+}
+.bell{
+  margin-left: 690px;
+  display: flex;
+  /* text-align:justify; */
+  justify-content: space-between;
 }
